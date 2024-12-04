@@ -17,7 +17,6 @@ body {
     padding: 20px 10px;
     margin: 0 10px;
     background: #A7D8FF; /* Azul suave */
-    flex-wrap: wrap; /* Permite que los elementos se reorganicen en pantallas pequeñas */
 }
 
 .banner-text {
