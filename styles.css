@@ -10,28 +10,27 @@ body {
 
 /* Banner */
 .banner {
-    position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
+    position: relative;
     padding: 20px 10px;
     margin: 0 10px;
+    background: #A7D8FF; /* Azul suave */
+    flex-wrap: wrap; /* Permite que los elementos se reorganicen en pantallas pequeñas */
 }
 
 .banner-text {
-    position: absolute;
-    top: 50%;
-    right: 10%;
-    transform: translateY(-50%);
-    color: white; /* Texto blanco */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para mejor visibilidad */
-    z-index: 1;
+    flex: 1;
+    text-align: right;
+    margin-right: 20px;
 }
 
 .banner-text h1 {
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 10px;
+    color: #4CAF50;
 }
 
 .banner-text h2 {
@@ -42,42 +41,21 @@ body {
 
 .banner-text p {
     font-size: 16px;
-}
-
-.banner-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-/* Beneficios */
-.benefits {
-    background: #C8F8A4;
-    padding: 20px;
-    display: flex;
-    justify-content: space-around;
-    border-radius: 8px;
-    margin: 20px 10px;
-}
-
-.benefit {
-    text-align: center;
-    font-weight: bold;
-    font-size: 16px;
+    margin-top: 10px;
 }
 
 /* Formulario flotante */
 .floating-form {
-    position: fixed; /* Hace que el formulario flote */
-    top: 50%; /* Centrado verticalmente */
-    left: 10%; /* Posicionado a la izquierda */
-    transform: translateY(-50%); /* Ajuste para centrarlo perfectamente */
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
     background: #ffffff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    z-index: 1000; /* Asegura que esté siempre visible */
-    width: 300px; /* Tamaño del formulario */
+    width: 300px;
+    z-index: 1000;
 }
 
 .form-box {
@@ -119,6 +97,25 @@ form button:hover {
     background: #45a049;
 }
 
+/* Beneficios */
+.benefits {
+    background: #C8F8A4;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 8px;
+    margin: 20px 10px;
+    flex-wrap: wrap; /* Permite reorganización en pantallas pequeñas */
+}
+
+.benefit {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    flex: 1 1 30%; /* Asegura que cada elemento ocupe el espacio necesario */
+    margin: 10px;
+}
+
 /* Footer */
 .footer {
     background: #B2E8A4;
@@ -129,4 +126,53 @@ form button:hover {
 .footer a {
     text-decoration: none;
     color: blue;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .banner {
+        flex-direction: column; /* Cambia la disposición del banner a columnas */
+        text-align: center; /* Centra el contenido */
+    }
+
+    .banner-text {
+        text-align: center; /* Centra el texto del banner */
+        margin-right: 0; /* Elimina margen extra */
+    }
+
+    .floating-form {
+        position: static; /* Deja de flotar en pantallas pequeñas */
+        margin: 20px auto; /* Centra el formulario */
+        transform: none; /* Elimina el ajuste vertical */
+        width: 90%; /* Ajusta el ancho a la pantalla */
+    }
+
+    .benefits {
+        flex-direction: column; /* Cambia la disposición a columnas */
+        align-items: center; /* Centra los beneficios */
+    }
+
+    .benefit {
+        flex: 1 1 100%; /* Cada beneficio ocupa toda la fila */
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-text h1 {
+        font-size: 20px; /* Reduce el tamaño de fuente del título */
+    }
+
+    .banner-text h2 {
+        font-size: 18px; /* Reduce el tamaño del subtítulo */
+    }
+
+    .form-box h2 {
+        font-size: 18px; /* Ajusta el tamaño del título del formulario */
+    }
+
+    form input,
+    form button {
+        font-size: 14px; /* Reduce el tamaño de las entradas y el botón */
+    }
 }
